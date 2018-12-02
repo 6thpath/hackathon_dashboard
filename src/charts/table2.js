@@ -158,7 +158,7 @@ class Table2 extends Component {
 
     return (
       <div style={{
-        width: '95%',
+        width: '100%',
         height: 400,
         textAlign: 'center'
       }}>

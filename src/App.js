@@ -19,7 +19,7 @@ import Table2 from './charts/table2'
 
 const web3 = new Web3(new Web3.providers.HttpProvider('http://10.20.0.86:8545'))
 const ABI = abi
-const BLOCK = `0x0bfaa3567b7dd73da5163c7748a0421081f3815c`
+const BLOCK = `0xa71519c99358fd7cc432b7c6dfabd9620ed79fd1`
 
 class App extends Component {
   constructor(props) {
@@ -48,20 +48,23 @@ class App extends Component {
     let NhapKho = await ConTract.methods.GetAllNhapKho().call({
       from: acc
     })
-    let log = []
-    for (let i = 0; i < BanHang[0].length; i++) {
-      log.push({
-        location: BanHang[0][i].region,
-        sellUnit: BanHang[2][i].count + ` đơn vị nhỏ nhất`,
-        buyUnit: NhapKho[2][i].count + ` đơn vị nhỏ nhất`,
-        drugName: BanHang[2][i].name,
-        shipmentId: BanHang[2][i].partNumber,
-        date: moment(+BanHang[2][i].timestamp).format('DD-MM-YYYY')
+    console.log(BanHang)
+    if (NhapKho[0].length !== 0) {
+      let log = []
+      for (let i = 0; i < BanHang[0].length; i++) {
+        log.push({
+          location: BanHang[0][i].region,
+          sellUnit: BanHang[2][i].count + ` đơn vị nhỏ nhất`,
+          buyUnit: NhapKho[2][i].count + ` đơn vị nhỏ nhất`,
+          drugName: BanHang[2][i].name,
+          shipmentId: BanHang[2][i].partNumber,
+          date: moment(+BanHang[2][i].timestamp).format('DD-MM-YYYY')
+        })
+      }
+      this.setState({
+        rowData: log
       })
     }
-    this.setState({
-      rowData: log
-    })
   }
 
   onGridReady = (params) => {

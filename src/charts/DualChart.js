@@ -4,8 +4,8 @@ import HighchartsReact from 'highcharts-react-official'
 
 export default class DualChart extends Component {
   render () {
-    const colData = [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
-    const splineData = [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+    const colData = [49.9, 71.5, 64.4, 59.2, 44.0, 57.0, 55.6, 48.5, 46.4, 54.1, 45.6, 54.4]
+    const splineData = [1253, 1453, 1653, 1475, 1812, 2125, 2282, 2625, 2313, 1843, 1329, 1916]
     const options = {
       chart: {
         zoomType: 'xy'
