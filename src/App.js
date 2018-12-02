@@ -139,7 +139,7 @@ class App extends Component {
             <Col span={4} style={headerStyle}>
               <Select style={{ width: 200 }} placeholder='Chọn khu vực' defaultValue={1}>
                 {
-                  locationData.map(loc => <Select.Option value={loc._id}>{loc.name}</Select.Option>)
+                  locationData.map((loc, i) => <Select.Option key={i} value={loc._id}>{loc.name}</Select.Option>)
                 }
               </Select>
             </Col>
